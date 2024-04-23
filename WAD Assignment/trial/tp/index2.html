@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".he1").hover(function(){
+                $(this).css("background-color", "yellow");
+            },
+            function(){
+                $(this).css("background-color","gray");
+            }
+            );
+        });
+
+        $(document).ready(function() {
+            $(".btn1").click(function(){
+                $(".he1").fadeOut(1000);
+            })
+
+            $(".btn2").click(function(){
+                $(".he1").fadeIn(1000);
+            })
+        })
+
+    </script>
+
+    <style>
+        .he1 , .he2 , .he3{
+            background-color: rgb(93, 148, 231);
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn1">Fade Out</button>
+    <button class="btn2">Fade In</button>
+    <div class="he1"> 
+        <h1> heading 1 </h1>
+    </div>
+        
+    <div class="he1"> 
+        <h1> heading 2 </h1>
+    </div>
+
+    <div class="he1"> 
+        <h1> heading 3 </h1>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+.signin {
+    width: 400px;
+    height: 500px;
+    margin-top: 20px;
+    background-color: #DCD6F7;
+}
+
+.btn {
+    width: 100px;
+}
+
+.button1 {
+    display: flex;
+    justify-content: center;
+}
+
+.container-fluid{
+    background-color: #A6B1E1;
+    padding: 1%;
+    margin-top: 0%;
+}
+
+.navbar{
+    padding: 0%;
+    margin-top: 0%;
+    /* height: 50px; */
+}
+
+body{
+    background-color: #F4EEFF;
+}
+
+.navbar-brand{
+    color : #424874
+}
+
+.container{
+    padding: 30px;
+    width: 300px;
+    
+}

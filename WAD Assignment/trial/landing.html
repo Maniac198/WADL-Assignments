@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Todo App - Home</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .card {
+            border: 0;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .todo-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .todo-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Welcome to Todo App</h3>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h4>Your Todo List</h4>
+                    <ul class="todo-list" id="todoList">
+                        <!-- Todo items will be dynamically added here -->
+                    </ul>
+                </div>
+                <button class="btn btn-primary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        function logout() {
+            // Clear user data from session
+            <?php session_destroy(); ?>
+
+            alert("Logout successful!");
+            // Redirect to the login page
+            window.location.href = "index.html";
+        }
+
+        // Sample data for demonstration
+        var todoData = [
+            { id: 1, text: 'Create a todo app', completed: false },
+            { id: 2, text: 'Add functionality to mark tasks as done', completed: true },
+            { id: 3, text: 'Style the todo list', completed: false }
+        ];
+
+        // Populate todo list on page load
+        $(document).ready(function () {
+            populateTodoList(todoData);
+        });
+
+        // Function to populate the todo list dynamically
+        function populateTodoList(data) {
+            var todoList = $('#todoList');
+            todoList.empty();
+
+            data.forEach(function (item) {
+                var listItem = $('<li class="todo-item">');
+                listItem.append('<span>' + item.text + '</span>');
+
+                if (!item.completed) {
+                    listItem.append('<button class="delete-btn" onclick="markAsCompleted(' + item.id + ')">Mark as Completed</button>');
+                }
+
+                todoList.append(listItem);
+            });
+        }
+
+        // Function to mark a task as completed (dummy function for demonstration)
+        function markAsCompleted(id) {
+            // Dummy function, you would need to implement your logic here
+            alert('Task marked as completed with ID: ' + id);
+        }
+    </script>
+</body>
+
+</html>
